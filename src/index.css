@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+nav {
+	background-color: grey;
+	height: 10vh;
+}
+
+main {
+	width: 80%;
+	margin: auto;
+	padding: 2rem;
+	height: 85vh;
+}
+
+footer {
+	background-color:  grey;
+	height: 5vh;
+}
+
+i {
+	font-size: 2rem;
+	color: grey;
+}
+
+button {
+	border: 1px solid lightgrey;
+	padding: 0.5rem;
+}
+
+table {
+	width: 100%;
+}
+
+a {
+	color:  inherit;
+	text-decoration: underline;
+}
+
+a:hover {
+	color: green;
+}
