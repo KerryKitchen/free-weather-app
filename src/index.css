@@ -41,3 +41,27 @@ a {
 a:hover {
 	color: green;
 }
+
+.weather-card {
+	border: 1px solid grey;
+	background-color: lightgrey;
+	padding: .5rem;
+	border-radius: 3px;
+}
+
+.card-header {
+	font-weight: 700;
+}
+
+.card-sub-header {
+	/*border: 1px solid salmon;*/
+	font-weight: 500;
+	color: grey;
+	display: block;
+}
+
+.card-data {
+	width: 100%;
+	/*border: 1px solid blue;*/
+	display: flex;
+}
