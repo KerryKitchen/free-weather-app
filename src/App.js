@@ -3,7 +3,7 @@ import React from 'react';
 
 // Used for fontawesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSun, faCloud, faCloudSun, faCloudRain } from "@fortawesome/free-solid-svg-icons";
+import { faSun, faCloud, faCloudSun, faCloudRain, faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { faSmog, faCloudShowersHeavy, faCloudBolt, faMeteor } from "@fortawesome/free-solid-svg-icons";
 
 // 
@@ -21,8 +21,10 @@ class App extends React.Component {
     this.callAPI = this.callAPI.bind(this);
     this.errorWithAPI = this.errorWithAPI.bind(this);
     this.getWeatherIcon = this.getWeatherIcon.bind(this);
-    this.returnTime = this.returnTime.bind(this);
-    this.returnFormattedDate = this.returnFormattedDate.bind(this);
+    this.getWeatherDescription = this.getWeatherDescription.bind(this);
+    this.getDirection = this.getDirection.bind(this);
+    this.getTime = this.getTime.bind(this);
+    this.getFormattedDate = this.getFormattedDate.bind(this); 
   }
 
   //
@@ -135,16 +137,81 @@ class App extends React.Component {
     return weatherIcon;
   }
 
-  returnTime(dateObj) {
+  // Returns a weather description dependant on the code input
+  getWeatherDescription(code) {
+
+    let weatherDesc;
+
+    switch(code) {
+      case 0:
+      case 1:
+        weatherDesc = "Clear";
+        break;
+      case 2:
+        weatherDesc = "Partly cloudy";
+        break;
+      case 3:
+        weatherDesc = "Cloudy";
+        break;
+      case 45:
+        weatherDesc = "Fog";
+        break;
+      case 51:
+      case 53:
+      case 55:
+      case 61:
+      case 63:
+      case 80:
+      case 81:
+        weatherDesc = "Rain";
+        break;
+      case 65:
+      case 82:
+        weatherDesc = "Heavy rain";
+        break;
+      case 95:
+      case 96:
+      case 99:
+        weatherDesc = "Thunderstorm";
+        break;
+      default:
+        weatherDesc = "Vacuum of space";
+    }
+
+    return weatherDesc;
+  }
+
+  getDirection(dir) {
+    
+    if (dir >= 337.5 || dir < 22.5) {
+      return "N";
+    } else if (dir >= 22.5 && dir < 67.5) {
+      return "NE";
+    } else if (dir >= 67.5 && dir < 112.5) {
+      return "E";
+    } else if (dir >= 112.5 && dir < 157.5) {
+      return "SE";
+    } else if (dir >= 157.5 && dir < 202.5) {
+      return "S";
+    } else if (dir >= 202.5 && dir < 247.5) {
+      return "SW";
+    } else if (dir >= 247.5 && dir < 292.5) {
+      return "W";
+    } else if (dir >= 292.5 && dir < 337.5) {
+      return "NW";
+    }
+  }
+
+  getTime(dateObj) {
 
 
     let newDate = new Date(dateObj);
 
     let outputString = "";
     if (newDate.getHours() < 10) {
-      outputString = "0" + newDate.getHours();
-    } else {
       outputString = newDate.getHours();
+    } else if (newDate.getHours() >=13) {
+      outputString = newDate.getHours() - 12;
     }
 
     outputString += ":";
@@ -158,7 +225,7 @@ class App extends React.Component {
     return outputString;
   }
 
-  returnFormattedDate(dateString) {
+  getFormattedDate(dateString) {
     
     let tempString = "x";
 
@@ -194,11 +261,15 @@ class App extends React.Component {
 
           <div key="output">      
             {btn}<br /><br />
-            {items.current_weather.temperature}<br />
-            <FontAwesomeIcon icon={this.getWeatherIcon(items.current_weather.weathercode)} /><br />
-            {items.current_weather.winddirection}<br />
-            {items.current_weather.windspeed}
+            <p>Current temperature: {items.current_weather.temperature}°C<br />
+            <FontAwesomeIcon icon={this.getWeatherIcon(items.current_weather.weathercode)} />
+            <span> {this.getWeatherDescription(items.current_weather.weathercode)}</span><br />
+            <span>Wind direction: <FontAwesomeIcon icon={faArrowUp} transform={{ rotate: items.current_weather.winddirection }}/> </span>
+            {this.getDirection(items.current_weather.winddirection)}<br />
+            Wind speed: {items.current_weather.windspeed} km/h</p>
           </div>
+
+          <br />
 
           <table>
 
@@ -206,7 +277,7 @@ class App extends React.Component {
               <tr>
                 {items.daily.time.map((item, index) => (
                 <th key={index}>
-                  {this.returnFormattedDate(item)}
+                  {this.getFormattedDate(item)}
                 </th>
               ))}
               </tr>
@@ -216,7 +287,8 @@ class App extends React.Component {
               <tr>
               {items.daily.weathercode.map((item, index) => (
                 <td key={index}>
-                  <FontAwesomeIcon icon={this.getWeatherIcon(item)} />
+                  <p><FontAwesomeIcon icon={this.getWeatherIcon(item)} />
+                  <span> {this.getWeatherDescription(item)}</span></p>
                 </td>
               ))}
               </tr>
@@ -240,7 +312,7 @@ class App extends React.Component {
               <tr>
               {items.daily.precipitation_sum.map((item, index) => (
                 <td key={index}>
-                  Total rain: {item}mm
+                  Total rain: {item} mm
                 </td>
               ))}
               </tr>
@@ -248,7 +320,7 @@ class App extends React.Component {
               <tr>
               {items.daily.sunrise.map((item, index) => (
                 <td key={index}>
-                  Sunrise: {this.returnTime(item)}
+                  Sunrise: {this.getTime(item)} am
                 </td>
               ))}
               </tr>
@@ -256,7 +328,7 @@ class App extends React.Component {
               <tr>
               {items.daily.sunset.map((item, index) => (
                 <td key={index}>
-                  Sunset: {this.returnTime(item)}
+                  Sunset: {this.getTime(item)} pm
                 </td>
               ))}
               </tr>
