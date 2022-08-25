@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+	--border-color: lightgrey;
+	--temp-high-color: darkorange;
+	--temp-low-color: lightseagreen;
+	--link-color: lightseagreen;
+}
+
 nav {
 	background-color: grey;
 	height: 10vh;
@@ -14,13 +21,6 @@ main {
 footer {
 	background-color:  grey;
 	height: 5vh;
-}
-
-:root {
-	--border-color: lightgrey;
-	--temp-high-color: orange;
-	--temp-low-color: lightseagreen;
-	--link-color: lightseagreen;
 }
 
 /* Section styles */

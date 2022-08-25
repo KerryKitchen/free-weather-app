@@ -232,7 +232,7 @@ class App extends React.Component {
             {/* Current weather section */}      
             <h2 className="font-semibold mb-4 text-center lg:text-left">7-day weather forecast</h2>
             <div className="current flex flex-col items-center lg:w-80 mx-auto">
-              <h2 className="mb-2">Current weather for <span className="location font-semibold">Brisbane</span></h2>
+              <h2 className="mb-2 text-center">Current weather for your location</h2>
               <div className="flex items-center gap-4 mb-4">
                 <FontAwesomeIcon className="current-icon" icon={this.getWeatherIcon(items.current_weather.weathercode)} />
                 <div className="">
