@@ -8,9 +8,6 @@ nav {
 }
 
 main {
-	width: 80%;
-	margin: auto;
-	padding: 2rem;
 	height: 85vh;
 }
 
@@ -19,49 +16,67 @@ footer {
 	height: 5vh;
 }
 
-i {
-	font-size: 2rem;
-	color: grey;
+:root {
+	--border-color: lightgrey;
+	--temp-high-color: orange;
+	--temp-low-color: lightseagreen;
+	--link-color: lightseagreen;
 }
 
-button {
-	border: 1px solid lightgrey;
-	padding: 0.5rem;
+/* Section styles */
+.wrapper {
+	max-width: 1200px;
+}
+.blurb {
+	padding: 1.5rem 2rem;
+	border: 1px solid var(--border-color);
+	border-radius: 3px;
+}
+.data {
+	padding: 1.5rem 2rem;
+	border: 1px solid var(--border-color);
+	border-radius: 3px;
+	background-color: lightcyan;
+	min-height: 70vh;
 }
 
-table {
-	width: 100%;
+/* Blurb section styles */
+.blurb p, .blurb h1 {
+	margin-bottom: 1rem;
 }
-
-a {
-	color:  inherit;
+.blurb p a {
+	color: var(--link-color);
+}
+.blurb p a:hover {
 	text-decoration: underline;
 }
 
-a:hover {
-	color: green;
+/* Data section styles */
+.current {			
+	border: 1px solid var(--border-color);
+	margin-bottom: 2rem;
+	padding: 1.5rem;
+	border-radius: 3px;
+	background-color: white;
 }
-
 .weather-card {
-	border: 1px solid grey;
-	background-color: lightgrey;
-	padding: .5rem;
+	background-color: white;
+	border: 1px solid var(--border-color);
 	border-radius: 3px;
 }
-
-.card-header {
-	font-weight: 700;
+.temp-high {
+	color: var(--temp-high-color);
+}
+.temp-low {
+	color:  var(--temp-low-color);
 }
 
-.card-sub-header {
-	/*border: 1px solid salmon;*/
-	font-weight: 500;
-	color: grey;
-	display: block;
+/* icons */
+.current-icon {
+	font-size: 3rem;
+	color: lightgrey;
 }
-
-.card-data {
-	width: 100%;
-	/*border: 1px solid blue;*/
-	display: flex;
+.forecast-icon {
+	font-size: 1.5rem;
+	color: lightgrey;
 }

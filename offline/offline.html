@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="offline.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<title>Document</title>
+</head>
+<body class="flex flex-col min-h-screen">
+
+	<!-- Navigation -->
+	<nav class="h-16 bg-slate-100"></nav>
+
+	<!-- Main content -->
+	<main class="grow">
+		
+		<!-- Wrapper (blurb + app) -->
+		<div class="lg:flex lg:w-3/5 w-4/5 mx-auto"> <!-- my-8 gap-8 -->
+
+			<!-- Blurb -->
+			<div id="blurb" class="border theme-color-main-border flex flex-col p-4">
+
+				<h1 class="font-semibold mx-auto">Weather App</h1>
+
+				<p class="text-red-500 sm:text-blue-500 md:text-green-500 lg:text-orange-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis dapibus purus at congue. Aenean tristique velit enim, sit amet pellentesque sem placerat a.</p>
+
+				<p>Nullam pharetra sed diam et vestibulum. Proin porta diam purus, non accumsan sapien vestibulum ut. <a href="open-meteo.com" class="theme-color-main">Open-meteo</a> suspendisse laoreet vitae dolor vel efficitur.</p>
+
+				<button class="px-4 py-2 border mx-auto" onclick="">Load weather data</button>
+
+			</div>
+
+			<!-- Data -->
+			<div id="data" class="border w-3/4">
+
+				<h1>7-day weather forecast</h1>
+
+				<!-- Current weather card -->
+				<div id="current-weather">
+					<p>Current weather for Brisbane</p>
+					<div class="flex">
+						<p>[sun-icon]</p>	
+						<div>
+							<p>19.9°C</p>
+							<p>Clear</p>
+						</div>
+					</div>
+					<p>Today</p>
+					<div class="flex">
+						<p>High</p>
+						<p>19.9°C</p> 
+						<p>Low</p> 
+						<p>9.3°C</p>
+					</div>
+				</div>
+
+				<!-- Next 6 days forecast -->
+				<div id="forecast-weather" class="flex flex-col">
+
+					<div class="lg:flex justify-between">
+						<!-- Individual weather card -->
+						<div class="weather-card">
+							<p class="wc-title">Date</p>
+							<div class="wc-weather">
+								<p class="wc-icon"><i class="fa-solid fa-sun"></i></p>
+								<p class="wc-desc">Cloudy</p>
+							</div>
+							<div class="wc-temps">
+								<div class="flex gap-1">
+									<p class="wc-high">High</p>
+									<p class="wc-tempdeg">19.9°C</p> 
+								</div>
+								<div class="flex gap-1">
+									<p class="wc-low">Low</p> 
+									<p class="wc-tempdeg">9.3°C</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Individual weather card -->
+						<div class="weather-card">
+							<p class="wc-title">Date</p>
+							<div class="wc-weather">
+								<p class="wc-icon"><i class="fa-solid fa-sun"></i></p>
+								<p class="wc-desc">Cloudy</p>
+							</div>
+							<div class="wc-temps">
+								<div class="flex gap-1">
+									<p class="wc-high">High</p>
+									<p class="wc-tempdeg">19.9°C</p> 
+								</div>
+								<div class="flex gap-1">
+									<p class="wc-low">Low</p> 
+									<p class="wc-tempdeg">9.3°C</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Individual weather card -->
+						<div class="weather-card">
+							<p class="wc-title">Date</p>
+							<div class="wc-weather">
+								<p class="wc-icon"><i class="fa-solid fa-sun"></i></p>
+								<p class="wc-desc">Cloudy</p>
+							</div>
+							<div class="wc-temps">
+								<div class="flex gap-1">
+									<p class="wc-high">High</p>
+									<p class="wc-tempdeg">19.9°C</p> 
+								</div>
+								<div class="flex gap-1">
+									<p class="wc-low">Low</p> 
+									<p class="wc-tempdeg">9.3°C</p>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="lg:flex gap-1">
+						<!-- Individual weather card -->
+						<div class="weather-card">
+							<p class="wc-title">Date</p>
+							<div class="wc-weather">
+								<p class="wc-icon"><i class="fa-solid fa-sun"></i></p>
+								<p class="wc-desc">Cloudy</p>
+							</div>
+							<div class="wc-temps">
+								<div class="flex gap-1">
+									<p class="wc-high">High</p>
+									<p class="wc-tempdeg">19.9°C</p> 
+								</div>
+								<div class="flex gap-1">
+									<p class="wc-low">Low</p> 
+									<p class="wc-tempdeg">9.3°C</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Individual weather card -->
+						<div class="weather-card">
+							<p class="wc-title">Date</p>
+							<div class="wc-weather">
+								<p class="wc-icon"><i class="fa-solid fa-sun"></i></p>
+								<p class="wc-desc">Cloudy</p>
+							</div>
+							<div class="wc-temps">
+								<div class="flex gap-1">
+									<p class="wc-high">High</p>
+									<p class="wc-tempdeg">19.9°C</p> 
+								</div>
+								<div class="flex gap-1">
+									<p class="wc-low">Low</p> 
+									<p class="wc-tempdeg">9.3°C</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Individual weather card -->
+						<div class="weather-card">
+							<p class="wc-title">Date</p>
+							<div class="wc-weather">
+								<p class="wc-icon"><i class="fa-solid fa-sun"></i></p>
+								<p class="wc-desc">Cloudy</p>
+							</div>
+							<div class="wc-temps">
+								<div class="flex gap-1">
+									<p class="wc-high">High</p>
+									<p class="wc-tempdeg">19.9°C</p> 
+								</div>
+								<div class="flex gap-1">
+									<p class="wc-low">Low</p> 
+									<p class="wc-tempdeg">9.3°C</p>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					
+				</div> <!-- end forecast-weather -->
+
+			</div>
+
+		</main>
+
+		<!-- Footer -->
+		<footer class="h-8 bg-slate-300"></footer>
+
+	</body>
+	</html>

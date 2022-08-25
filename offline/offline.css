@@ -1,0 +1,49 @@
+:root {
+	--main-color: hotpink;
+}
+
+.show-me {
+	border: 1px solid red;
+}
+
+.theme-color-main {
+	color: var(--main-color);
+}
+
+.theme-color-main-border {
+	border: 1px solid var(--main-color);
+}
+
+#current-weather {
+	border: 1px solid grey;
+}
+
+#forecast-weather {
+	border: 1px solid grey;
+	padding: 2rem;
+}
+
+.weather-card {
+	border: 1px solid grey;
+	/*width: 33%;*/
+	padding: 0.5rem;
+	text-align: center;
+}
+
+.wc-weather {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.wc-temps {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.fa-sun {
+	color: gold;
+}
+
+.w-250px {
+	width: 250px;
+}

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<title>Test</title>
+	<style>
+
+		:root {
+			--border-color: lightgrey;
+			--temp-high-color: orange;
+			--temp-low-color: lightseagreen;
+			--link-color: lightseagreen;
+		}
+
+		/* Section styles */
+		.wrapper {
+			max-width: 1200px;
+		}
+		.blurb {
+			padding: 1.5rem 2rem;
+			border: 1px solid var(--border-color);
+			border-radius: 3px;
+		}
+		.data {
+			padding: 1.5rem 2rem;
+			border: 1px solid var(--border-color);
+			border-radius: 3px;
+			background-color: lightcyan;
+		}
+
+		/* Blurb section styles */
+		.blurb p, .blurb h1 {
+			margin-bottom: 1rem;
+		}
+		.blurb p a {
+			color: var(--link-color);
+		}
+		.blurb p a:hover {
+			text-decoration: underline;
+		}
+
+		/* Data section styles */
+		.current {			
+			border: 1px solid var(--border-color);
+			margin-bottom: 2rem;
+			padding: 1.5rem;
+			border-radius: 3px;
+			background-color: white;
+		}
+		.weather-card {
+			background-color: white;
+			border: 1px solid var(--border-color);
+			border-radius: 3px;
+		}
+		.temp-high {
+			color: var(--temp-high-color);
+		}
+		.temp-low {
+			color:  var(--temp-low-color);
+		}
+
+		/* icons */
+		.current-icon {
+			font-size: 3rem;
+			color: lightgrey;
+		}
+		.forecast-icon {
+			font-size: 1.5rem;
+			color: lightgrey;
+		}
+
+	</style>
+</head>
+<body>
+
+	<!-- Main wrapper -->
+	<div class="wrapper lg:flex w-4/5 mx-auto my-8">	
+
+		<!-- Blurb section -->
+		<div class="blurb w-full h-max mb-8 lg:w-80 lg:mr-8">
+
+			<!-- Blurb content slab -->
+			<h1 class="font-semibold text-center">Weather App</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis dapibus purus at congue. Aenean tristique velit enim, sit amet pellentesque sem placerat a.</p>
+			<p>Nullam pharetra sed diam et vestibulum. Proin porta diam purus, non accumsan sapien vestibulum ut. <a href="https://open-meteo.com" class="normal-link" target="_blank">Open-meteo</a> suspendisse laoreet vitae dolor vel efficitur.</p>
+			<div class="flex justify-center">
+				<button class="px-4 py-2 border" onclick="">Load weather data</button>
+			</div>
+
+		</div> <!-- end blurb -->
+
+		<!-- Data section -->
+		<div class="data h-full lg:flex-1">
+
+			<h2 class="font-semibold mb-4 text-center lg:text-left">7-day weather forecast</h2>
+
+			<!-- Current weather -->
+			<div class="current flex flex-col items-center w-80 mx-auto">
+
+				<h2 class="mb-2">Current weather for <span class="location font-semibold">Brisbane</span></h2>
+
+				<div class="flex items-center gap-4 mb-4">
+					<i class="fa-solid fa-sun current-icon"></i>
+					<div class="">
+						<p>19.9°C</p>
+						<p>Clear</p>
+					</div>
+				</div>
+
+				<h2 class="font-semibold mb-2">Today</h2>
+
+				<div class="flex gap-3">
+					<div class="flex gap-2">
+						<p class="font-semibold temp-high">High</p>
+						<p>19.9°C</p>
+					</div>
+					<div class="flex gap-2">
+						<p class="font-semibold temp-low">Low</p>
+						<p>9.3°C</p>
+					</div>
+				</div>
+
+			</div> <!-- end current weather -->
+
+			<!-- Weather forecast -->
+			<div class="forecast grid grid-cols-1 md:grid-cols-2 gap-2">
+
+				<!-- weather card -->
+				<div class="weather-card flex flex-col items-center p-2 gap-1">
+					<p class="font-semibold">Tomorrow</p>
+					<div class="flex gap-2">
+						<i class="forecast-icon fa-solid fa-sun"></i>
+						<p>Cloudy</p>
+					</div>
+					<div class="flex gap-3">
+						<div class="flex gap-2">
+							<p class="font-semibold temp-high">High</p>
+							<p>19.9°C</p>
+						</div>
+						<div class="flex gap-2">
+							<p class="font-semibold temp-low">Low</p>
+							<p>9.3°C</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- weather card -->
+				<div class="weather-card flex flex-col items-center p-2 gap-1">
+					<p class="font-semibold">Tomorrow</p>
+					<div class="flex gap-2">
+						<i class="forecast-icon fa-solid fa-sun"></i>
+						<p>Cloudy</p>
+					</div>
+					<div class="flex gap-4">
+						<div class="flex gap-2">
+							<p class="font-semibold temp-high">High</p>
+							<p>19.9°C</p>
+						</div>
+						<div class="flex gap-2">
+							<p class="font-semibold temp-low">Low</p>
+							<p>9.3°C</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- weather card -->
+				<div class="weather-card flex flex-col items-center p-2 gap-1">
+					<p class="font-semibold">Tomorrow</p>
+					<div class="flex gap-2">
+						<i class="forecast-icon fa-solid fa-sun"></i>
+						<p>Cloudy</p>
+					</div>
+					<div class="flex gap-3">
+						<div class="flex gap-2">
+							<p class="font-semibold temp-high">High</p>
+							<p>19.9°C</p>
+						</div>
+						<div class="flex gap-2">
+							<p class="font-semibold temp-low">Low</p>
+							<p>9.3°C</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- weather card -->
+				<div class="weather-card flex flex-col items-center p-2 gap-1">
+					<p class="font-semibold">Tomorrow</p>
+					<div class="flex gap-2">
+						<i class="forecast-icon fa-solid fa-sun"></i>
+						<p>Cloudy</p>
+					</div>
+					<div class="flex gap-3">
+						<div class="flex gap-2">
+							<p class="font-semibold temp-high">High</p>
+							<p>19.9°C</p>
+						</div>
+						<div class="flex gap-2">
+							<p class="font-semibold temp-low">Low</p>
+							<p>9.3°C</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- weather card -->
+				<div class="weather-card flex flex-col items-center p-2 gap-1">
+					<p class="font-semibold">Tomorrow</p>
+					<div class="flex gap-2">
+						<i class="forecast-icon fa-solid fa-sun"></i>
+						<p>Cloudy</p>
+					</div>
+					<div class="flex gap-3">
+						<div class="flex gap-2">
+							<p class="font-semibold temp-high">High</p>
+							<p>19.9°C</p>
+						</div>
+						<div class="flex gap-2">
+							<p class="font-semibold temp-low">Low</p>
+							<p>9.3°C</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- weather card -->
+				<div class="weather-card flex flex-col items-center p-2 gap-1">
+					<p class="font-semibold">Tomorrow</p>
+					<div class="flex gap-2">
+						<i class="forecast-icon fa-solid fa-sun"></i>
+						<p>Cloudy</p>
+					</div>
+					<div class="flex gap-3">
+						<div class="flex gap-2">
+							<p class="font-semibold temp-high">High</p>
+							<p>19.9°C</p>
+						</div>
+						<div class="flex gap-2">
+							<p class="font-semibold temp-low">Low</p>
+							<p>9.3°C</p>
+						</div>
+					</div>
+				</div>
+
+			</div> <!-- end forecast -->
+
+		</div> <!-- end data  -->
+
+	</div> <!-- end wrapper -->
+
+</body>
+</html>
