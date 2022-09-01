@@ -3,66 +3,90 @@
 @tailwind utilities;
 
 :root {
+	--main-bg: whitesmoke;
+	--block-bg: white;
+	--icon-color: lightgrey;
 	--border-color: lightgrey;
 	--temp-high-color: darkorange;
 	--temp-low-color: lightseagreen;
-	--link-color: lightseagreen;
+}
+
+*:focus {
+	outline: none;
+	/* 1px solid var(--link-color); */
+	/* @apply ring ring-link-color; */
+}
+
+p, h1, h2 {
+	color: rgb(70, 70, 70);
+}
+
+.blurb p, .under-da-hood p, .blurb h1, .under-da-hood h2 {
+	margin-bottom: 1rem;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
 
 nav {
-	background-color: grey;
-	height: 10vh;
+	height: 5vh;	
+	border-bottom: 1px solid var(--border-color);
 }
 
 main {
-	height: 85vh;
+	flex: 1;
+	background-color: var(--main-bg);
+}
+
+main a {
+	color: var(--temp-low-color);
+	transition:  color .3s;
+}
+main a:hover {
+	color: var(--temp-high-color);
+	transition:  color .3s;
 }
 
 footer {
-	background-color:  grey;
 	height: 5vh;
+	margin-top: auto;
+	border-top: 1px solid var(--border-color);
 }
 
 /* Section styles */
 .wrapper {
 	max-width: 1200px;
 }
-.blurb {
+.block-style {
 	padding: 1.5rem 2rem;
 	border: 1px solid var(--border-color);
 	border-radius: 3px;
-}
-.data {
-	padding: 1.5rem 2rem;
-	border: 1px solid var(--border-color);
-	border-radius: 3px;
-	background-color: lightcyan;
-	min-height: 70vh;
+	background-color: var(--block-bg);
 }
 
 /* Blurb section styles */
-.blurb p, .blurb h1 {
-	margin-bottom: 1rem;
-}
-.blurb p a {
-	color: var(--link-color);
-}
-.blurb p a:hover {
-	text-decoration: underline;
+.cta {
+	@apply drop-shadow hover:drop-shadow-none active:shadow-inner;
+	padding: 0.5rem 1rem;
+	border: 1px solid var(--border-color);
+	background-color: var(--block-bg);
 }
 
 /* Data section styles */
-.current {			
-	border: 1px solid var(--border-color);
+.current {		
 	margin-bottom: 2rem;
-	padding: 1.5rem;
+	padding: 1.5rem;	
+	border: 1px solid var(--border-color);
 	border-radius: 3px;
-	background-color: white;
+	background-color: var(--block-bg);
 }
 .weather-card {
-	background-color: white;
 	border: 1px solid var(--border-color);
 	border-radius: 3px;
+	background-color: var(--block-bg);
 }
 .temp-high {
 	color: var(--temp-high-color);
@@ -74,9 +98,9 @@ footer {
 /* icons */
 .current-icon {
 	font-size: 3rem;
-	color: lightgrey;
+	color: var(--icon-color);
 }
 .forecast-icon {
 	font-size: 1.5rem;
-	color: lightgrey;
+	color: var(--icon-color);
 }
