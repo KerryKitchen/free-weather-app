@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/free-weather-app/static/css/main.4d0c3101.css",
-    "main.js": "/free-weather-app/static/js/main.ba0f2bcf.js",
-    "index.html": "/free-weather-app/index.html",
-    "main.4d0c3101.css.map": "/free-weather-app/static/css/main.4d0c3101.css.map",
-    "main.ba0f2bcf.js.map": "/free-weather-app/static/js/main.ba0f2bcf.js.map"
+    "main.css": "/weather-app/static/css/main.4d0c3101.css",
+    "main.js": "/weather-app/static/js/main.ba0f2bcf.js",
+    "index.html": "/weather-app/index.html",
+    "main.4d0c3101.css.map": "/weather-app/static/css/main.4d0c3101.css.map",
+    "main.ba0f2bcf.js.map": "/weather-app/static/js/main.ba0f2bcf.js.map"
   },
   "entrypoints": [
     "static/css/main.4d0c3101.css",
