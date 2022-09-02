@@ -6,20 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta name="description" content="Web site created using create-react-app" />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!-- <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" /> -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Weather App</title>
+    <style>
+    nav {
+      height: 10vh;
+      background: linear-gradient(45deg, lightgreen, lightblue);
+      padding-bottom: 1px;
+    }
+    .nav-inner {
+      background-color: rgb(255, 255, 255, 0.97);
+      height: 100%;
+      display: flex;
+      justify-content: space-between;   
+      align-items: center;   
+    }  
+    .logo {
+      color: dimgrey;
+    }
+    .nav-inner a {
+      margin-left: 2rem;
+    }
+    .nav-inner a:hover {
+      text-decoration: underline;
+    }
+    </style>
   </head>
   <body>
-    
-    <nav></nav>
+
+    <nav>
+      <div class="nav-inner px-16 lg:px-48">    
+        <div class="logo">Kerry Kitchen</div>    
+        <div class="hidden lg:inline">
+          <a href="#" class="text-gray-300">Home</a>
+          <a href="#" class="active">Weather App</a>
+        </div>
+        <div class="inline lg:hidden">
+          <i class="fa-solid fa-bars" onclick="console.log('click');"></i>
+        </div>
+      </div>
+    </nav>
 
     <main>
       <noscript>You need to enable JavaScript to run this app.</noscript>
       <div id="root"></div>  
     </main>  
 
-    <footer></footer>
+    <!-- <footer></footer> -->
 
   </body>
 </html>

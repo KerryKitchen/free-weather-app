@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-	--main-bg: whitesmoke;
+	--main-bg: white;
 	--block-bg: white;
 	--icon-color: lightgrey;
 	--border-color: lightgrey;
@@ -31,14 +31,13 @@ body {
 	min-height: 100vh;
 }
 
-nav {
-	height: 5vh;	
-	border-bottom: 1px solid var(--border-color);
-}
+nav {}
 
 main {
 	flex: 1;
-	background-color: var(--main-bg);
+	 background-color: var(--main-bg); 
+	/* background: linear-gradient(45deg, lightgreen, lightblue); */
+	/* background-color:rgba(0, 0, 0, 0.5); */
 }
 
 main a {

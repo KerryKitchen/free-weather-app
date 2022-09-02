@@ -20,7 +20,7 @@ class App extends React.Component {
     this.navigatorError = this.navigatorError.bind(this);
     this.getWeatherIcon = this.getWeatherIcon.bind(this);
     this.getWeatherDescription = this.getWeatherDescription.bind(this);
-    this.getWeekday = this.getWeekday.bind(this); 
+    this.getFormattedDate = this.getFormattedDate.bind(this);
   }
 
 
@@ -185,16 +185,28 @@ class App extends React.Component {
 
 
   // Returns the day of the week for a given date-parsable sting
-  getWeekday(dateString) {
+  getFormattedDate(dateString) {
 
     // Weekdays in an array
     const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
     // Get the corresponding weekday using the day as the index
-    let newDate = new Date(dateString);
-    const tempString = weekday[newDate.getDay()];
+    const newDate = new Date(dateString);
+    const today = new Date();
+    let output = "";
 
-    return tempString;
+    // Concatenate the output string
+    if (newDate.getDay() === today.getDay()) {
+      output += "Today";     
+    } else {
+      output += weekday[newDate.getDay()];
+    }
+    output += " " + String(newDate.getDate());
+    output += " " + months[newDate.getMonth()];
+
+    // return the output string
+    return output;
   }
 
 
@@ -242,7 +254,7 @@ class App extends React.Component {
                     <p>{this.getWeatherDescription(items.current_weather.weathercode)}</p>
                   </div>
                 </div>
-                <h2 className="font-semibold mb-2">Today</h2>
+                <h2 className="font-semibold mb-2">{this.getFormattedDate(items.current_weather.time)}</h2>
                 <div className="flex gap-3">
                   <div className="flex gap-2">
                     <p className="font-semibold temp-high">High</p>
@@ -261,7 +273,7 @@ class App extends React.Component {
                 {/* Using map to get day headers, utilising index to get other data */}
                 {items.daily.time.slice(1).map((item, index) => (
                   <div key={item} className="weather-card flex flex-col items-center p-2 gap-1">
-                    <p className="font-semibold">{this.getWeekday(item)}</p>
+                    <p className="font-semibold">{this.getFormattedDate(item)}</p>
                     <div className="flex gap-2">
                       <FontAwesomeIcon className="forecast-icon" icon={this.getWeatherIcon(items.daily.weathercode[index])} />
                       <p>{this.getWeatherDescription(items.daily.weathercode[index])}</p>
